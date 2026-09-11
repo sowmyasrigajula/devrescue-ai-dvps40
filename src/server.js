@@ -98,7 +98,7 @@ const server = http.createServer(async (request, response) => {
       const scenario = resetScenarioRepo(serverRepoRoot, update.scenarioId);
       const logText = update.logText || scenario.log;
       const result = runDevRescue({ repoRoot: serverRepoRoot, logText });
-      const pullRequest = await createLivePullRequest(result);
+      const pullRequest = await createLivePullRequest(result, scenario.id);
 
       sendJson(response, 200, {
         ok: true,

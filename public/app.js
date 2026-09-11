@@ -167,7 +167,7 @@ livePrButton.addEventListener("click", async () => {
     }
 
     botReply.textContent = `Live GitHub PR created: ${payload.pullRequest.url}`;
-    prPreview.textContent = `${prPreview.textContent}\n\nLive PR: ${payload.pullRequest.url}`;
+    prPreview.textContent = `${prPreview.textContent}\n\nLive PR: ${payload.pullRequest.url}\nPatched file: ${payload.pullRequest.filePath}`;
     window.open(payload.pullRequest.url, "_blank", "noopener,noreferrer");
   } catch (error) {
     statusLabel.textContent = "Review";

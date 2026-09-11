@@ -62,7 +62,9 @@ $env:GITHUB_REPO="your_demo_repo"
 npm run server
 ```
 
-The token needs **contents write** and **pull request write** access. The live flow creates a fix branch from `dev`, writes only the patched backend file, and opens a PR back to `dev`.
+The token needs **contents write** and **pull request write** access. The live flow creates a fix branch from `dev`, writes only the patched backend file under `live-demo-target/<scenario>/...`, and opens a PR back to `dev`.
+
+Before using live PR mode, make sure these files are pushed to the remote `dev` branch too. That gives GitHub a clean before/after diff for the patched backend file.
 
 ## Run Tests
 
