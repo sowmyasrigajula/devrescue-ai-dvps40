@@ -1,4 +1,4 @@
-import { requireAuth } from "./middleware/authMiddleware";
+import { requireAuth } from "./middlewares/authMiddleware";
 
 export function handleProfile(request) {
   const auth = requireAuth(request.headers);
