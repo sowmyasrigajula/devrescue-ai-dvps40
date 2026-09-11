@@ -1,4 +1,4 @@
-import { createUser } from "./services/userService.js";
+import { createUserAccount } from "./services/userService.js";
 
 export function handleSignup(requestBody) {
   if (!requestBody.email) {
@@ -8,7 +8,7 @@ export function handleSignup(requestBody) {
     };
   }
 
-  const user = createUser(requestBody.email);
+  const user = createUserAccount(requestBody.email);
 
   return {
     status: 201,
