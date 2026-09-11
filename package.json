@@ -1,0 +1,21 @@
+{
+  "name": "devrescue-ai-demo",
+  "version": "1.0.0",
+  "description": "Demo-ready autonomous DevOps Telegram bot prototype for DVPS40.",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "demo": "node src/demo.js",
+    "server": "node src/server.js",
+    "test": "node src/tests.js"
+  },
+  "keywords": [
+    "devops",
+    "telegram-bot",
+    "ai-agent",
+    "github",
+    "hackathon"
+  ],
+  "author": "",
+  "license": "MIT"
+}

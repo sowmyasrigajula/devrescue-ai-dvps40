@@ -1,0 +1,8 @@
+Railway deployment failed
+
+Running "npm run build"
+
+src/server.js
+SyntaxError: The requested module './services/userService.js' does not provide an export named 'createUser'
+
+Error: Command "npm run build" exited with 1

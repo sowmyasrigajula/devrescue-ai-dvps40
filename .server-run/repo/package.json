@@ -1,0 +1,8 @@
+{
+  "name": "devrescue-module-path",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build-check.js"
+  }
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DevRescue AI</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">DVPS40 Demo</p>
+          <h1>DevRescue AI</h1>
+          <p class="subtitle">
+            Autonomous Telegram DevOps bot that parses deployment logs, diagnoses backend failures, writes a safe fix from dev, self-reviews, and prepares a PR back to dev.
+          </p>
+        </div>
+        <div class="status-pill" id="status">Ready</div>
+      </section>
+
+      <section class="policy-strip">
+        <div>
+          <span>Source</span>
+          <strong>GitHub dev branch</strong>
+        </div>
+        <div>
+          <span>Protected</span>
+          <strong>No direct main push</strong>
+        </div>
+        <div>
+          <span>Resolution</span>
+          <strong>Pull Request only</strong>
+        </div>
+        <div>
+          <span>Target</span>
+          <strong>dev</strong>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="panel log-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Secondary Deployment Log</h2>
+              <select id="scenarioSelect" aria-label="Failure scenario">
+                <option value="backend-export">Backend service export mismatch</option>
+                <option value="route-handler">Undefined backend route handler</option>
+                <option value="module-path">Backend middleware path mismatch</option>
+              </select>
+            </div>
+            <button id="runButton">Run Auto-Fix</button>
+          </div>
+          <textarea id="logInput" spellcheck="false">Railway deployment failed
+
+Running "npm run build"
+
+src/server.js
+SyntaxError: The requested module './services/userService.js' does not provide an export named 'createUser'
+
+Error: Command "npm run build" exited with 1</textarea>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Telegram Bot Reply</h2>
+            <button id="livePrButton" disabled>Create Live PR</button>
+          </div>
+          <div class="chat">
+            <div class="bubble bot">Deployment failed. Send the Railway or Vercel logs and I will repair only through a PR.</div>
+            <div class="bubble user">Backend build failed on dev deployment.</div>
+            <div class="bubble bot" id="botReply">Click Run Auto-Fix to start.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="results">
+        <article>
+          <span>Scenario</span>
+          <p id="scenarioName">Backend service export mismatch</p>
+        </article>
+        <article>
+          <span>Validation</span>
+          <p id="validation">Not run yet.</p>
+        </article>
+        <article>
+          <span>Risk</span>
+          <p id="risk">Not reviewed yet.</p>
+        </article>
+        <article>
+          <span>PR Target</span>
+          <p id="branch">dev</p>
+        </article>
+      </section>
+
+      <section class="panel root-panel">
+        <span>Root Cause</span>
+        <p id="rootCause">Waiting for analysis.</p>
+      </section>
+
+      <section class="panel timeline-panel">
+        <h2>Agent Execution Timeline</h2>
+        <ol id="timeline" class="timeline">
+          <li><strong>Waiting</strong><span>Ready to parse a deployment failure.</span></li>
+        </ol>
+      </section>
+
+      <section class="workspace bottom">
+        <div class="panel">
+          <h2>Backend Code Diff</h2>
+          <pre id="diff">No patch yet.</pre>
+        </div>
+        <div class="panel">
+          <h2>Pull Request Preview</h2>
+          <pre id="prPreview">No PR preview yet.</pre>
+        </div>
+      </section>
+
+      <section class="panel review-panel">
+        <h2>Automated Code Review</h2>
+        <div id="reviewChecks" class="review-grid">
+          <p>No review yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
